@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="es">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>1-Mecanografia</title>
+        <style>
+            body { 
+                font-family: 'Arial', sans-serif; 
+                background-color: #1e1e1e; 
+                color: #ffffff; 
+                display: flex; 
+                justify-content: center; 
+                align-items: center; 
+                height: 100vh; 
+                margin: 0; 
+            }
+            #container { 
+                max-width: 800px;
+                padding: 20px; 
+                background: #2e2e2e; 
+                border-radius: 8px; 
+                box-shadow: 0 0 10px rgba(0,0,0,0.5); 
+                text-align: center; 
+                position: relative; 
+            }
+            #text-to-type { 
+                font-size: 32px; 
+                margin-bottom: 20px; 
+                min-height: 40px; 
+                color: #ccc; /* Color del texto original */
+                white-space: pre-wrap; /* Permite saltos de línea */
+            }
+            #user-input { 
+                font-size: 32px; 
+                width: 100%; 
+                padding: 10px; 
+                border: none; /* Sin borde */
+                outline: none; 
+                background: transparent; 
+                color: transparent; /* Oculta el texto escrito */
+                caret-color: transparent; /* Oculta el cursor */
+                position: absolute; 
+                top: 10px; /* Ajusta la posición hacia abajo */
+                left: 0; 
+                z-index: 1; 
+            }
+            #result { margin-top: 20px; font-size: 20px; }
+            #timer { font-size: 20px; margin-top: 10px; }
+            .correct { color: #00ff00; }
+            .incorrect { color: #ff0000; }
+            .next { color: #ffffff; } /* Color para la siguiente letra */
+        </style>
+    </head>
+    <body>
+        <div id="container">
+            <div id="text-to-type"></div>
+            <input type="text" id="user-input" autofocus />
+            <div id="result"></div>
+            <div id="timer">Tiempo: <span id="time">60</span> segundos</div>
+        </div>
+
+        <script>
+            const texts = [
+                "La mecanografía es una habilidad esencial en el mundo moderno. Escribir rápidamente y con precisión puede mejorar la productividad y facilitar la comunicación. Practicar regularmente es clave para dominar esta destreza.",
+                "La lectura y la escritura son fundamentales para el aprendizaje. A través de la escritura, podemos expresar nuestras ideas y pensamientos de manera clara. La práctica constante nos ayuda a mejorar nuestras habilidades.",
+                "La tecnología ha transformado la forma en que nos comunicamos. Hoy en día, la mayoría de las interacciones se realizan a través de dispositivos digitales. Aprender a escribir bien en estos dispositivos es más importante que nunca."
+            ];
+
+            // Seleccionar un texto aleatorio
+            const textToType = texts[Math.floor(Math.random() * texts.length)];
+            document.getElementById('text-to-type').innerText = textToType;
+
+            const userInput = document.getElementById('user-input');
+            const result = document.getElementById('result');
+            const timerDisplay = document.getElementById('time');
+            let timeLeft = 60;
+            let timer;
+
+            userInput.addEventListener('input', () => {
+                const inputValue = userInput.value;
+                const displayText = textToType.split('').map((char, index) => {
+                    if (inputValue[index] === char) {
+                        return `<span class="correct">${char}</span>`;
+                    } else if (inputValue[index] !== undefined) {
+                        return `<span class="incorrect">${char}</span>`;
+                    }
+                    // Resaltar la siguiente letra en blanco
+                    return index === inputValue.length ? `<span class="next">${char}</span>` : `<span style="color: #ccc;">${char}</span>`;
+                }).join('');
+                
+                document.getElementById('text-to-type').innerHTML = displayText;
+
+                if (inputValue === textToType) {
+                    result.innerText = '¡Correcto!';
+                    clearInterval(timer);
+                } else {
+                    result.innerText = '';
+                }
+            });
+
+            function startTimer() {
+                timer = setInterval(() => {
+                    timeLeft--;
+                    timerDisplay.innerText = timeLeft;
+                    if (timeLeft <= 0) {
+                        clearInterval(timer);
+                        result.innerText = '¡Tiempo terminado!';
+                    }
+                }, 1000);
+            }
+
+            startTimer();
+        </script>
+    </body>
+</html>
