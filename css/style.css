@@ -1,0 +1,192 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Carrois+Gothic&family=Coming+Soon&family=PT+Serif:ital,wght@0,400;0,700;1,400;1,700&family=Roboto+Serif:ital,opsz,wght@0,8..144,100..900;1,8..144,100..900&display=swap');
+
+* {
+    font-family: "Black Ops One", serif;
+}
+
+body {
+    background-color: #d3d3d3;
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    height: fit-content;
+}
+
+.container-header button {
+    border-radius: 2em;
+    right: 0;
+    position: absolute;
+    margin-right: 2em;
+    margin-top: 1em;
+    transition: 0.5s;
+}
+
+.container-header button:hover {
+    transform: scale(1.3);
+    transition: 0.5s;
+}
+
+.container-titulo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+.effect-letter {
+    font-size: 1.5em;
+    color: yellow;
+    text-shadow: 0 0 5px rgba(255, 255, 0, 0.8), 0 0 10px rgba(255, 255, 0, 0.6);
+}
+
+.container-titulo img {
+    width: 100px;
+    transform: rotate(25deg);
+    margin-left: 30px;
+}
+
+.container-creadores {
+    display: flex;
+    flex-direction: column;
+    margin-top: 20px;
+}
+
+.creador {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: center;
+}
+
+.creador p {
+    text-align: center;
+    margin-left: 10px;
+}
+
+.img-creador {
+    width: 100px;
+    margin-right: 15px;
+    margin-left: 20px;
+}
+
+.container-projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.card {
+    background-color: white;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    width: 200px;
+    margin: 20px;
+    padding: 10px;
+    text-align: center;
+}
+
+.project-image {
+    width: 100%;
+    border-radius: 8px;
+}
+
+.buttons {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+}
+
+button {
+    margin: 0 5px;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007BFF;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+button:hover {
+    background-color: #0056b3;
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+}
+
+.github-button {
+    display: flex;
+    align-items: center;
+    background-color: #f0f0f0;
+    border: 1px solid #000;
+    border-radius: 5px;
+    padding: 5px 10px;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.github-button:hover {
+    background-color: #e0e0e0;
+}
+
+.github-button svg {
+    margin-right: 5px;
+}
+
+.container-header {
+    position: relative;
+}
+
+.tooltip {
+    display: inline-block;
+    background-color: #f0f0f0;
+    color: black;
+    padding: 5px 10px;
+    border-radius: 5px;
+    position: absolute;
+    left: 50px;
+    top: 50%;
+    transform: translateY(-50%);
+    white-space: nowrap;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.demo-button {
+    border: 2px solid #d69e2e;
+    color: #d69e2e;
+    background-color: transparent;
+    padding: 8px 16px;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.demo-button:hover {
+    background-color: #d69e2e;
+    color: white;
+}
+
+.project-image {
+    width: 200px; 
+    height: 200px; 
+    object-fit: cover; 
+    border-radius: 8px; 
+}
+
+.project-image-mecanografia {
+    width: 200px; /* Ancho fijo */
+    height: 200px; /* Altura fija */
+    object-fit: cover; /* Asegura que la imagen se ajuste bien al contenedor */
+    border-radius: 8px; /* Bordes redondeados */
+    transform: scale(1.1); /* Aumenta el tamaño de la imagen */
+    transition: transform 0.3s; /* Transición suave */
+}
