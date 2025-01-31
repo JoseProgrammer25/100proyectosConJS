@@ -131,6 +131,7 @@ main {
     transition: transform 0.3s, box-shadow 0.3s;
     display: flex;
     flex-direction: column;
+    align-items: center; /* Centra el contenido horizontalmente */
 }
 
 .project-image {
@@ -138,6 +139,8 @@ main {
     height: 150px;
     object-fit: cover;
     border-radius: 15px 15px 0 0;
+    display: block;
+    margin: 0 auto; /* Centra la imagen horizontalmente */
 }
 
 .card h3 {
